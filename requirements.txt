@@ -1,4 +1,9 @@
 flask
-pandas
-scipy
 gunicorn
+requests
+pandas
+numpy
+scipy
+scikit-learn
+joblib
+
