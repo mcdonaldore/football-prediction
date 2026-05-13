@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Cup Predictor</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>⚽ World Cup Prediction Dashboard</h1>
+
+        <div class="card">
+
+            <div class="teams">
+
+                <select id="homeTeam">
+                    {% for team in teams %}
+                        <option>{{ team }}</option>
+                    {% endfor %}
+                </select>
+
+                <select id="awayTeam">
+                    {% for team in teams %}
+                        <option>{{ team }}</option>
+                    {% endfor %}
+                </select>
+
+            </div>
+
+            <button onclick="predictMatch()">
+                Predict Match
+            </button>
+
+        </div>
+
+        <div class="results">
+
+            <div class="stat-box">
+                <h2>Home xG</h2>
+                <p id="homeXG">0.00</p>
+            </div>
+
+            <div class="stat-box">
+                <h2>Away xG</h2>
+                <p id="awayXG">0.00</p>
+            </div>
+
+            <div class="stat-box">
+                <h2>Home Win %</h2>
+                <p id="homeProb">0%</p>
+            </div>
+
+            <div class="stat-box">
+                <h2>Draw %</h2>
+                <p id="drawProb">0%</p>
+            </div>
+
+            <div class="stat-box">
+                <h2>Away Win %</h2>
+                <p id="awayProb">0%</p>
+            </div>
+
+        </div>
+
+        <div class="prediction" id="prediction">
+            Waiting for prediction...
+        </div>
+
+    </div>
+
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
